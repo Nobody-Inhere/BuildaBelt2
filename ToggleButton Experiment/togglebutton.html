@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style>
+#d1, #d2 {
+    display: none;
+}
+
+#color1, #color2{
+  display: none;
+}
+</style>
+</head>
+<body>
+  <input id="button" type="button" value="Show Belt Colors" onclick="showMore1()">
+  <div id="d1">
+      <input type="button" value="red belt" onclick="showLess()2">
+      <input type="button" value="green belt" onclick="showLess()2">
+      <input type="button" value="blue belt" onclick="BeltColor1()">
+  </div>
+  <input id="button" type="button" value="Show Net Colors" onclick="showMore2()">
+  <div id="d2">
+      <input type="button" value="red net" onclick="showLess2()">
+      <input type="button" value="green net" onclick="showLess2()">
+      <input type="button" value="blue net" onclick="showLess2()">
+  </div>
+  <div id="color1">
+    <p>this is a belt color</p>
+  </div>
+  <div id="color2">
+    <p>this is a net color</p>
+  </div>
+  <script type="text/javascript">
+  var button = document.getElementById("button");
+  var d1 = document.getElementById("d1");
+  var d2 = document.getElementById("d2");
+  var color1 = document.getElementById("color1");
+  var color2 = document.getElementById("color2");
+
+  function showMore1() {
+      d2.style.display="none";
+      button.style.display="inline-block";
+      d1.style.display="block";
+  }
+
+  function showMore2() {
+      d1.style.display="none";
+      button.style.display="inline-block";
+      d2.style.display="block";
+  }
+
+  function showLess1() {
+      button.style.display="inline-block";
+      color1.style.display="block";
+      color2.style.display ="none";
+  }
+
+  function showLess2() {
+      button.style.display="inline-block";
+      color2.style.display="block";
+      color1.style.display ="none";
+  }
+  </script>
+</body>
+</html>
