@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- CALLING JAVASCRIPT JQUERY LIBRARY -------------------------------------------->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=font1|font2|etc" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js" type="text/javascript"></script>
+<script src="fabric.min.js" type="text/javascript"></script>
+<!--  ------------------------------------------------------------------------------>
+
+<!-- START CSS STYLING ------------------------------------------------------------->
+<style>
+#d1, #d2 {
+    display: none;
+}
+
+#color1, #color2{
+  display: none;
+}
+</style>
+<!-------------------------------------------------------------------------------->
+
+</head>
+
+<!-- START html CORE CODE  -------------------------------------------------------->
+<body>
+
+<!--CREATE HTML CANVAS  ----------------------------------------------------------------->
+  <canvas id="c" width="800" height="600" style="border:solid 1px #000000;"></canvas>
+<!---------------------------------------------------------------------------------->
+
+
+  <input id="button" type="button" value="Show Belt Colors" onclick="showMore1()">
+  <div id="d1">
+      <input type="button" value="red belt" onclick="showLess1()">
+      <input type="button" value="green belt" onclick="showLess1()">
+      <input type="button" value="blue belt" onclick="showLess1()">
+  </div>
+  <input id="button" type="button" value="Show Net Colors" onclick="showMore2()">
+  <div id="d2">
+      <input type="button" value="red net" onclick="showLess2()">
+      <input type="button" value="green net" onclick="showLess2()">
+      <input type="button" value="blue net" onclick="showLess2()">
+  </div>
+  <div id="color1">
+    <p>this is a belt color</p>
+  </div>
+  <div id="color2">
+    <p>this is a net color</p>
+  </div>
+
+<!--JAVASCRIPT CODE START ----------------------------------------------------------------->
+<script type="text/javascript">
+
+//DEFINE VARIABLES ----------------------------------------------------------------->
+var button = document.getElementById("button");
+var d1 = document.getElementById("d1");
+var d2 = document.getElementById("d2");
+var color1 = document.getElementById("color1");
+var color2 = document.getElementById("color2");
+
+
+//CREATE FABRIC CANVAS  ----------------------------------------------------------------------->
+
+  function showMore1() {
+      d2.style.display="none";
+      button.style.display="inline-block";
+      d1.style.display="block";
+  }
+
+  function showMore2() {
+      d1.style.display="none";
+      button.style.display="inline-block";
+      d2.style.display="block";
+  }
+
+  function showLess1() {
+      button.style.display="inline-block";
+      color1.style.display="block";
+      color2.style.display ="none";
+  }
+
+  function showLess2() {
+      button.style.display="inline-block";
+      color2.style.display="block";
+      color1.style.display ="none";
+  }
+  </script>
+</body>
+<!-------------------------------------------------------------------------------->
+</html>

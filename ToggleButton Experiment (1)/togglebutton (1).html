@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- CALLING JAVASCRIPT JQUERY LIBRARY -------------------------------------------->
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=font1|font2|etc" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js" type="text/javascript"></script>
+  <script src="fabric.min.js" type="text/javascript"></script>
+<!--  ------------------------------------------------------------------------------>
+
+<!-- START CSS STYLING ------------------------------------------------------------->
+<style>
+#d1, #d2 {
+    display: none;
+}
+
+#Red, #Blue, #Green, #color2{
+  display: none;
+}
+
+#Main{
+  position: relative;
+}
+
+</style>
+<!-------------------------------------------------------------------------------->
+
+</head>
+
+<!-- START html CORE CODE  -------------------------------------------------------->
+<body>
+
+<!--CREATE HTML CANVAS  ----------------------------------------------------------------->
+<div id="Main">
+<canvas id="layer1" width="600" height="300" style="border:solid 1px #000000; position: absolute; left: 0; top: 0; z-index: 0;"></canvas>
+<canvas id="layer2" width="600" height="300" style="border:solid 1px #000000; position: relative; left: 0; top: 0; z-index: 1;"></canvas>
+</div>
+<!---------------------------------------------------------------------------------->
+  <input id="button" type="button" value="Show Belt Colors" onclick="showMore1()">
+  <div id="d1" >
+      <input type="button" value="red belt" onclick="ShowBelt(this.value)">
+      <input type="button" value="green belt" onclick="ShowBelt(this.value)">
+      <input type="button" value="purple belt" onclick="ShowBelt(this.value)">
+      <input type="button" value="yellow belt" onclick="ShowBelt(this.value)">
+  </div>
+  <input id="button" type="button" value="Show Net Colors" onclick="showMore2()">
+  <div id="d2">
+      <input type="button" value="red net" onclick="showNet(this.value)">
+      <input type="button" value="green net" onclick="showNet(this.value)">
+      <input type="button" value="purple net" onclick="showNet(this.value)">
+      <input type="button" value="yellow net" onclick="showNet(this.value)">
+
+  <div id="color2">
+    <p>this is a net color</p>
+  </div>
+
+  <!--JAVASCRIPT CODE START ----------------------------------------------------------------->
+  <script type="text/javascript">
+
+  //DEFINE VARIABLES ----------------------------------------------------------------->
+  var button = document.getElementById("button");
+  var d1 = document.getElementById("d1");
+  var d2 = document.getElementById("d2");
+  var red = document.getElementById("Red");
+  var blue = document.getElementById("Blue");
+  var green = document.getElementById("Green");
+  var color2 = document.getElementById("color2");
+
+
+
+//CREATE FABRIC CANVAS  ----------------------------------------------------------------------->
+var canvas = new fabric.Canvas('layer1');
+var canvas2 = new fabric.Canvas('layer2');
+//CREATE FABRIC CANVAS  ----------------------------------------------------------------------->
+
+
+  function showMore1() {
+      d2.style.display="none";
+      button.style.display="inline-block";
+      d1.style.display="block";
+  }
+  function showMore2() {
+        d1.style.display="none";
+        button.style.display="inline-block";
+        d2.style.display="block";
+    }
+
+  function ShowBelt(val) {
+    if(val == 'red belt')
+    {
+        canvas.clear();
+        button.style.display="inline-block";
+        color2.style.display ="none";
+        fabric.Image.fromURL('images/redbelt.png', function(img){
+          img.set({
+            left: 50,
+            top: 5,
+            selectable:false,
+          })
+          img.scale(0.5);
+          canvas.add(img);
+        });
+    }
+    else if(val == 'green belt')
+    {
+      canvas.clear();
+      button.style.display="inline-block";
+      color2.style.display ="none";
+      fabric.Image.fromURL('images/greenbelt.png', function(img){
+        img.set({
+          left: 50,
+          top: 5,
+          selectable:false,
+        })
+        img.scale(0.5);
+        canvas.add(img);
+      });
+    }
+    else if(val == 'purple belt')
+    {
+      canvas.clear();
+      button.style.display="inline-block";
+      color2.style.display ="none";
+      fabric.Image.fromURL('images/purplebelt.png', function(img){
+        img.set({
+          left: 50,
+          top: 5,
+          selectable:false,
+        })
+        img.scale(0.5);
+        canvas.add(img);
+      });
+    }
+    else if(val == 'yellow belt')
+    {
+      canvas.clear();
+      button.style.display="inline-block";
+      color2.style.display ="none";
+      fabric.Image.fromURL('images/yellowbelt.png', function(img){
+        img.set({
+          left: 50,
+          top: 5,
+          selectable:false,
+        })
+        img.scale(0.5);
+        canvas.add(img);
+      });
+    }
+    else {
+      alert('nothing here');
+    }
+    }
+
+
+  function showNet(val) {
+    if(val == 'red net')
+    {
+        fabric.Image.fromURL('images/rednet.png', function(img){
+          img.set({
+            left: 50,
+            top: 5,
+            selectable: false,
+          })
+          img.scale(0.5);
+          canvas2.add(img);
+        });
+    }
+    else if(val == 'green net')
+    {
+      canvas2.clear();
+      button.style.display="inline-block";
+      color2.style.display ="none";
+      fabric.Image.fromURL('images/greennet.png', function(img){
+        img.set({
+          left: 50,
+          top: 5,
+          selectable:false,
+        })
+        img.scale(0.5);
+        canvas2.add(img);
+      });
+    }
+    else if(val == 'purple net')
+    {
+      canvas2.clear();
+      button.style.display="inline-block";
+      color2.style.display ="none";
+      fabric.Image.fromURL('images/purplenet.png', function(img){
+        img.set({
+          left: 50,
+          top: 5,
+          selectable:false,
+        })
+        img.scale(0.5);
+        canvas2.add(img);
+      });
+    }
+    else if(val == 'yellow net')
+    {
+      canvas2.clear();
+      button.style.display="inline-block";
+      color2.style.display ="none";
+      fabric.Image.fromURL('images/yellownet.png', function(img){
+        img.set({
+          left: 50,
+          top: 5,
+          selectable:false,
+        })
+        img.scale(0.5);
+        canvas2.add(img);
+      });
+    }
+    else {
+      alert('nothing here');
+    }
+    }
+  </script>
+</body>
+</html>

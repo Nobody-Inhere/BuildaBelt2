@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- CALLING JAVASCRIPT JQUERY LIBRARY -------------------------------------------->
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=font1|font2|etc" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js" type="text/javascript"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js" type="text/javascript"></script>
+  <script src="fabric.min.js" type="text/javascript"></script>
+<!--  ------------------------------------------------------------------------------>
+
+<!-- START CSS STYLING ------------------------------------------------------------->
+<style>
+#d1, #d2 {
+    display: none;
+}
+
+#Red, #Blue, #Green, #color2{
+  display: none;
+}
+</style>
+<!-------------------------------------------------------------------------------->
+
+</head>
+
+<!-- START html CORE CODE  -------------------------------------------------------->
+<body>
+
+<!--CREATE HTML CANVAS  ----------------------------------------------------------------->
+<canvas id="c" width="600" height="300" style="border:solid 1px #000000;"></canvas>
+<!---------------------------------------------------------------------------------->
+  <input id="button" type="button" value="Show Belt Colors" onclick="showMore1()">
+  <!--<input id="button" type="button" value="Show Belt Colors" onclick="showMore1()">-->
+
+  <div id="d1">
+      <input type="button" value="red belt" onclick="doSomething(this.value)">
+      <input type="button" value="green belt" onclick="doSomething(this.value)">
+      <input type="button" value="purple belt" onclick="doSomething(this.value)">
+      <input type="button" value="yellow belt" onclick="doSomething(this.value)">
+  </div>
+  <input id="button" type="button" value="Show Net Colors" onclick="showMore2()">
+  <div id="d2">
+      <input type="button" value="red net" onclick="showLess2()">
+      <input type="button" value="green net" onclick="showLess2()">
+      <input type="button" value="blue net" onclick="showLess2()">
+  </div>
+  <div id="Red">
+    <p>this is a red belt</p>
+  </div>
+  <div id="Blue">
+    <p>this is a blue belt</p>
+  </div>
+  <div id="Green">
+    <p>this is a green belt</p>
+  </div>
+  <div id="color2">
+    <p>this is a net color</p>
+  </div>
+
+  <!--JAVASCRIPT CODE START ----------------------------------------------------------------->
+  <script type="text/javascript">
+
+  //DEFINE VARIABLES ----------------------------------------------------------------->
+  var button = document.getElementById("button");
+  var d1 = document.getElementById("d1");
+  var d2 = document.getElementById("d2");
+  var red = document.getElementById("Red");
+  var blue = document.getElementById("Blue");
+  var green = document.getElementById("Green");
+  var color2 = document.getElementById("color2");
+
+
+
+//CREATE FABRIC CANVAS  ----------------------------------------------------------------------->
+var canvas = new fabric.Canvas('c');
+//CREATE FABRIC CANVAS  ----------------------------------------------------------------------->
+
+
+  function showMore1() {
+      d2.style.display="none";
+      button.style.display="inline-block";
+      d1.style.display="block";
+  }
+  /*function showMore2() {
+      d1.style.display="none";
+      button.style.display="inline-block";
+      d2.style.display="block";
+  }*/
+
+  function doSomething(val) {
+    //alert(val);
+    if(val == 'red belt')
+    {
+        canvas.clear();
+        button.style.display="inline-block";
+        //green.style.display="none";
+        //blue.style.display="none";
+        //red.style.display="block";
+        color2.style.display ="none";
+        //alert('a red belt')
+        //alert("I am going to add a red belt to the canvas now");
+        fabric.Image.fromURL('images/redbelt.png', function(img){
+          img.set({
+            left: 50,
+            top: 5,
+            lockMovementX: true,
+            lockMovementY: true,
+            lockScalingX: true,
+            lockScalingY: true,
+            lockRotation: true,
+            lockSkewingX: true,
+            lockSkewingY: true,
+          })
+          img.scale(0.5);
+          canvas.add(img);
+        });
+    }
+    else if(val == 'green belt')
+    {
+      canvas.clear();
+      button.style.display="inline-block";
+      //green.style.display="none";
+      //blue.style.display="none";
+      //red.style.display="block";
+      color2.style.display ="none";
+      //alert('a red belt')
+      //alert("I am going to add a red belt to the canvas now");
+      fabric.Image.fromURL('images/greenbelt.png', function(img){
+        img.set({
+          left: 50,
+          top: 5,
+          lockMovementX: true,
+          lockMovementY: true,
+          lockScalingX: true,
+          lockScalingY: true,
+          lockRotation: true,
+          lockSkewingX: true,
+          lockSkewingY: true,
+        })
+        img.scale(0.5);
+        canvas.add(img);
+      });
+    }
+    else if(val == 'purple belt')
+    {
+      canvas.clear();
+      button.style.display="inline-block";
+      //green.style.display="none";
+      //blue.style.display="none";
+      //red.style.display="block";
+      color2.style.display ="none";
+      //alert('a red belt')
+      //alert("I am going to add a red belt to the canvas now");
+      fabric.Image.fromURL('images/purplebelt.png', function(img){
+        img.set({
+          left: 50,
+          top: 5,
+          lockMovementX: true,
+          lockMovementY: true,
+          lockScalingX: true,
+          lockScalingY: true,
+          lockRotation: true,
+          lockSkewingX: true,
+          lockSkewingY: true,
+        })
+        img.scale(0.5);
+        canvas.add(img);
+      });
+    }
+    else if(val == 'yellow belt')
+    {
+      canvas.clear();
+      button.style.display="inline-block";
+      //green.style.display="none";
+      //blue.style.display="none";
+      //red.style.display="block";
+      color2.style.display ="none";
+      //alert('a red belt')
+      //alert("I am going to add a red belt to the canvas now");
+      fabric.Image.fromURL('images/yellowbelt.png', function(img){
+        img.set({
+          left: 50,
+          top: 5,
+          lockMovementX: true,
+          lockMovementY: true,
+          lockScalingX: true,
+          lockScalingY: true,
+          lockRotation: true,
+          lockSkewingX: true,
+          lockSkewingY: true,
+        })
+        img.scale(0.5);
+        canvas.add(img);
+      });
+    }
+    else
+    {
+      alert('nothing here');
+    }
+    }
+
+/*  function showRed() {
+      button.style.display="inline-block";
+      green.style.display="none";
+      blue.style.display="none";
+      red.style.display="block";
+      color2.style.display ="none";
+  }
+
+  function showGreen() {
+    button.style.display="inline-block";
+    green.style.display="block";
+    blue.style.display="none";
+    red.style.display="none";
+    color2.style.display ="none";
+  }
+
+  function showBlue() {
+    button.style.display="inline-block";
+    green.style.display="none";
+    blue.style.display="block";
+    red.style.display="none";
+    color2.style.display ="none";
+  }*/
+
+  /*function showLess2() {
+      button.style.display="inline-block";
+      color2.style.display="block";
+      color1.style.display ="none";
+  }*/
+  </script>
+</body>
+</html>
